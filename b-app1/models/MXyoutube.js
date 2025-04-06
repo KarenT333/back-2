@@ -24,5 +24,5 @@ const VideoSchema = mongoose.Schema(
     }
 )
 
-const MXvideo = mongoose.model('Mxvideo', VideoSchema);
+const MXvideo = mongoose.model('MX_youtube', VideoSchema, 'MX_youtube');
 module.exports = MXvideo;

@@ -5,6 +5,10 @@ const MXvideo = require('../models/MXyoutube');
 const getMXvideo = async (req, res) => {
     try {
         const Mxvideos = await MXvideo.find({});
+        console.log(Mxvideos)
+        if (Mxvideos.length === 0) {
+            console.log("No se encontraron videos en la base de datos.");
+        }
         res.status(200).json(Mxvideos);
     } catch (error){
         res.status(500).json({
@@ -18,8 +22,9 @@ const getMXvideo = async (req, res) => {
 const getMXvideoById = async (req, res) => {
     try {
         //id proviene de una variable en la URL
-        const id = req.params()
-        const Mxvideos = await MXvideo.find({'_id': id});
+        const id = req.params.id;
+        //const Mxvideos = await MXvideo.find({'_id': id});
+        const Mxvideos = await MXvideo.findById(id);
         res.status(200).json(Mxvideos);
     } catch (error){
         res.status(500).json({

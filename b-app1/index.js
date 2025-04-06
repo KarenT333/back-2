@@ -4,13 +4,14 @@ const express = require('express');
 const mongoose = require('mongoose');
 
 
+
 //Importar las rutas de la colección MXyoutube
 const MXyoutuberoute = require('./routes/MXyoutube.route');
 
 
 //Inicialización de la aplicación
 const app = express();
-// Incomrporación el parser de JSON
+// Incomrporación el parse de JSON
 app.use(express.json() );
 
 //Determinación del puerto
@@ -42,7 +43,7 @@ app.use('/api/MXvideos', MXyoutuberoute);
 
 //Definiendo la conexión a la Base de datos a traves de Mongoose
 //La conexión a base de datos es de tipo promesa
-mongoose.connect('mongodb+srv://utp0159252:SethoK@youtubemex.fdaxy.mongodb.net/')
+mongoose.connect('mongodb+srv://utp0159252:SethoK@youtubemex.fdaxy.mongodb.net/MX_youtube_trending_data')
     .then(() => {
 
     console.log('Conectado a la Base de Datos de manera exitosa');
